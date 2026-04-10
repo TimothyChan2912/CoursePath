@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CoursePath</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🎓 CoursePath</h1>
+    <p class="subtitle">Upload your transcript to get your course breakdown</p>
+
+    <form id="uploadForm">
+        <input type="file" id="fileInput" name="file" accept=".pdf" required>
+        <button type="submit">Upload Transcript</button>
+    </form>
+
+    <div class="card">
+        <h2>Extracted Courses</h2>
+        <pre id="output">Upload a transcript to see results...</pre>
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

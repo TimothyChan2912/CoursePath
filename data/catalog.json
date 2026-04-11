@@ -1,0 +1,936 @@
+[
+  {
+    "course_id": "CS22A",
+    "title": "CS 22A - Python for Everyone",
+    "prerequisites": [],
+    "corequisites": [
+      "CS1022AS"
+    ],
+    "units": 3
+  },
+  {
+    "course_id": "CS22B",
+    "title": "CS 22B - Python Programming for Data Analysis",
+    "prerequisites": [
+      "CS22A"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS25",
+    "title": "CS 25 - The Digital World and Society",
+    "prerequisites": [],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS42",
+    "title": "CS 42 - Discrete Mathematics",
+    "prerequisites": [
+      "MATH18B",
+      "MATH18A",
+      "MATH19"
+    ],
+    "corequisites": [
+      "MATH42W",
+      "MATH18A",
+      "MATH18B",
+      "MATH42",
+      "MATH19"
+    ],
+    "units": 3
+  },
+  {
+    "course_id": "CS46A",
+    "title": "CS 46A - Introduction to Programming",
+    "prerequisites": [
+      "MATH1"
+    ],
+    "corequisites": [],
+    "units": 4
+  },
+  {
+    "course_id": "CS46AW",
+    "title": "CS 46AW - Introduction to Programming Workshop",
+    "prerequisites": [
+      "CS46AX",
+      "CS46A"
+    ],
+    "corequisites": [],
+    "units": 1
+  },
+  {
+    "course_id": "CS46AX",
+    "title": "CS 46AX - Introduction to Programming",
+    "prerequisites": [
+      "MATH1"
+    ],
+    "corequisites": [
+      "CS46AW"
+    ],
+    "units": 4
+  },
+  {
+    "course_id": "CS46B",
+    "title": "CS 46B - Introduction to Data Structures",
+    "prerequisites": [
+      "CS46AX",
+      "CS46AW",
+      "MATH18A",
+      "MATH18B",
+      "MATH19",
+      "CS46A"
+    ],
+    "corequisites": [],
+    "units": 4
+  },
+  {
+    "course_id": "CS47",
+    "title": "CS 47 - Introduction to Computer Systems",
+    "prerequisites": [
+      "CS42",
+      "CS46B",
+      "MATH42"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS48",
+    "title": "CS 48 - Applied Algorithms",
+    "prerequisites": [
+      "CS46B"
+    ],
+    "corequisites": [],
+    "units": 1
+  },
+  {
+    "course_id": "CS49C",
+    "title": "CS 49C - Programming in C",
+    "prerequisites": [],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS49J",
+    "title": "CS 49J - Programming in Java",
+    "prerequisites": [
+      "CS46B"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS50",
+    "title": "CS 50 - Scientific Computing I",
+    "prerequisites": [
+      "MATH30"
+    ],
+    "corequisites": [
+      "MATH31",
+      "CHEM1A",
+      "PHYS50",
+      "METR60"
+    ],
+    "units": 2
+  },
+  {
+    "course_id": "CS85A",
+    "title": "CS 85A - Practical Computing Topics",
+    "prerequisites": [],
+    "corequisites": [],
+    "units": 1
+  },
+  {
+    "course_id": "CS92",
+    "title": "CS 92 - International Program Studies",
+    "prerequisites": [],
+    "corequisites": [],
+    "units": 6
+  },
+  {
+    "course_id": "CS100W",
+    "title": "CS 100W - Technical Writing Workshop",
+    "prerequisites": [],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS108",
+    "title": "CS 108 - Introduction to Game Studies",
+    "prerequisites": [],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS116A",
+    "title": "CS 116A - Introduction to Computer Graphics",
+    "prerequisites": [
+      "MATH39",
+      "MATH31",
+      "CS146"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS116B",
+    "title": "CS 116B - Computer Graphics Algorithms",
+    "prerequisites": [
+      "CS116A"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS122",
+    "title": "CS 122 - Advanced Programming with Python",
+    "prerequisites": [
+      "CS146"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS123A",
+    "title": "CS 123A - Bioinformatics I",
+    "prerequisites": [
+      "BIOL31",
+      "CS46B"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS123B",
+    "title": "CS 123B - Bioinformatics II",
+    "prerequisites": [
+      "CS123A",
+      "SE123A",
+      "BIOL123A"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS131",
+    "title": "CS 131 - Processing Big Data - Tools and Techniques",
+    "prerequisites": [
+      "CS22B",
+      "CS46B"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS133",
+    "title": "CS 133 - Introduction to Data Visualization",
+    "prerequisites": [
+      "CS22B",
+      "CS146"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS134",
+    "title": "CS 134 - Computer Game Design and Programming",
+    "prerequisites": [
+      "CS151",
+      "CMPE135",
+      "CS146"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS136",
+    "title": "CS 136 - Introduction to Computer Vision",
+    "prerequisites": [
+      "MATH39",
+      "CS49C",
+      "CS146"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS143C",
+    "title": "CS 143C - Numerical Analysis and Scientific Computing",
+    "prerequisites": [
+      "CS22A",
+      "MATH33A",
+      "CS49C",
+      "MATH34",
+      "MATH50",
+      "MATH32",
+      "CS49J",
+      "MATH33LA",
+      "CS46A"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS143M",
+    "title": "CS 143M - Numerical Analysis and Scientific Computing",
+    "prerequisites": [
+      "CS22A",
+      "MATH39",
+      "CS49C",
+      "MATH50",
+      "CS46A"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS144",
+    "title": "CS 144 - Advanced C++ Programming",
+    "prerequisites": [
+      "CS46B",
+      "CS49C"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS146",
+    "title": "CS 146 - Data Structures and Algorithms",
+    "prerequisites": [
+      "CS46B",
+      "CS48",
+      "MATH30",
+      "MATH42",
+      "CS49J"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS147",
+    "title": "CS 147 - Computer Architecture",
+    "prerequisites": [
+      "CS47",
+      "CMPE102"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS148",
+    "title": "CS 148 - Applied Algorithms II",
+    "prerequisites": [
+      "CS146"
+    ],
+    "corequisites": [],
+    "units": 1
+  },
+  {
+    "course_id": "CS149",
+    "title": "CS 149 - Operating Systems",
+    "prerequisites": [
+      "CS47",
+      "CMPE102",
+      "CS146"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS151",
+    "title": "CS 151 - Object-Oriented Design",
+    "prerequisites": [
+      "CS49J",
+      "CS46B",
+      "CS48",
+      "MATH42"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS152",
+    "title": "CS 152 - Programming Paradigms",
+    "prerequisites": [
+      "CMPE135",
+      "CS151"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS153",
+    "title": "CS 153 - Concepts of Compiler Design",
+    "prerequisites": [
+      "CS47",
+      "CS154",
+      "CMPE102",
+      "CS146"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS154",
+    "title": "CS 154 - Formal Languages and Computability",
+    "prerequisites": [
+      "CS46B",
+      "MATH42"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS155",
+    "title": "CS 155 - Introduction to the Design and Analysis of Algorithms",
+    "prerequisites": [
+      "CS146"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS156",
+    "title": "CS 156 - Introduction to Artificial Intelligence",
+    "prerequisites": [
+      "CS146"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS157A",
+    "title": "CS 157A - Introduction to Database Management Systems",
+    "prerequisites": [
+      "CS146"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS157B",
+    "title": "CS 157B - Database Management Systems II",
+    "prerequisites": [
+      "CS157A"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS157C",
+    "title": "CS 157C - NoSQL Database Systems",
+    "prerequisites": [
+      "CS157A"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS158A",
+    "title": "CS 158A - Computer Networks",
+    "prerequisites": [
+      "CS47",
+      "CS146"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS158B",
+    "title": "CS 158B - Computer Network Management",
+    "prerequisites": [
+      "CMPE148",
+      "CS158A"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS159",
+    "title": "CS 159 - Introduction to Parallel Processing",
+    "prerequisites": [
+      "CS146"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS160",
+    "title": "CS 160 - Software Engineering",
+    "prerequisites": [
+      "CS151",
+      "CS100W",
+      "CS146"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS161",
+    "title": "CS 161 - Software Project",
+    "prerequisites": [
+      "CS160"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS163",
+    "title": "CS 163 - Data Science Senior Project",
+    "prerequisites": [
+      "CS131",
+      "CS171",
+      "CS156",
+      "CS100W"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS166",
+    "title": "CS 166 - Information Security",
+    "prerequisites": [
+      "CS47",
+      "CMPE102",
+      "CMPE120",
+      "CS146"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS168",
+    "title": "CS 168 - Blockchain and Cryptocurrencies",
+    "prerequisites": [
+      "CS166"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS171",
+    "title": "CS 171 - Introduction to Machine Learning",
+    "prerequisites": [
+      "CS146"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS174",
+    "title": "CS 174 - Server-side Web Programming",
+    "prerequisites": [
+      "CS46B"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS175",
+    "title": "CS 175 - Mobile Device Development",
+    "prerequisites": [
+      "CS47",
+      "CS49J",
+      "CS46A"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS176",
+    "title": "CS 176 - Introduction to Social Network Analysis",
+    "prerequisites": [
+      "CS146"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS180",
+    "title": "CS 180 - Individual Studies",
+    "prerequisites": [],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS180H",
+    "title": "CS 180H - Individual Studies for Honors",
+    "prerequisites": [],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS185A",
+    "title": "CS 185A - Advanced Practical Computing Topics",
+    "prerequisites": [],
+    "corequisites": [],
+    "units": 1
+  },
+  {
+    "course_id": "CS185C",
+    "title": "CS 185C - Advanced Practical Computing Topics",
+    "prerequisites": [],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS190",
+    "title": "CS 190 - Internship Project",
+    "prerequisites": [
+      "CS146"
+    ],
+    "corequisites": [],
+    "units": 1
+  },
+  {
+    "course_id": "CS190I",
+    "title": "CS 190I - Internship Project",
+    "prerequisites": [
+      "CS146"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS192",
+    "title": "CS 192 - International Program Studies",
+    "prerequisites": [],
+    "corequisites": [],
+    "units": 6
+  },
+  {
+    "course_id": "CS200W",
+    "title": "CS 200W - Graduate Technical Writing",
+    "prerequisites": [],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS216",
+    "title": "CS 216 - Physically Based Modeling for Computer Graphics",
+    "prerequisites": [
+      "CS116A"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS218",
+    "title": "CS 218 - Topics in Cloud Computing",
+    "prerequisites": [
+      "CS149"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS223",
+    "title": "CS 223 - Advanced Bioinformatics",
+    "prerequisites": [
+      "SE123B",
+      "CS123B",
+      "BIOL123B"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS224",
+    "title": "CS 224 - Next Generation Sequencing & Genome Assembly",
+    "prerequisites": [
+      "MATH162",
+      "CS171",
+      "CS156",
+      "BIOL123B"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS225",
+    "title": "CS 225 - Topics in Sequence-based Machine Learning for Bioinformatics",
+    "prerequisites": [
+      "MATH162",
+      "CS171",
+      "CS156",
+      "BIOL123B"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS228",
+    "title": "CS 228 - Biometric Security with AI",
+    "prerequisites": [
+      "CS171"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS235",
+    "title": "CS 235 - User Interface Design",
+    "prerequisites": [
+      "CS116A",
+      "CS130"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS247",
+    "title": "CS 247 - Advanced Computer Architecture",
+    "prerequisites": [
+      "CS147",
+      "CS149"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS249",
+    "title": "CS 249 - Distributed Computing",
+    "prerequisites": [
+      "CS149"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS251",
+    "title": "CS 251 - Obj Oriented Anlys",
+    "prerequisites": [
+      "CS160"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS252",
+    "title": "CS 252 - Advanced Programming Language Principles",
+    "prerequisites": [
+      "CS152"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS253",
+    "title": "CS 253 - Advanced Compiler Design",
+    "prerequisites": [
+      "CS153"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS254",
+    "title": "CS 254 - Theory of Computation",
+    "prerequisites": [
+      "CS154"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS255",
+    "title": "CS 255 - Design and Analysis of Algorithms",
+    "prerequisites": [
+      "CS155"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS256",
+    "title": "CS 256 - Topics in Artificial Intelligence",
+    "prerequisites": [
+      "CS156"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS257",
+    "title": "CS 257 - Database System Principles",
+    "prerequisites": [
+      "CS157B"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS258",
+    "title": "CS 258 - Computer Communication Systems",
+    "prerequisites": [
+      "CS158A"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS259",
+    "title": "CS 259 - Advanced Parallel Processing",
+    "prerequisites": [],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS262",
+    "title": "CS 262 - Randomized Algorithms and Applications",
+    "prerequisites": [
+      "CS155",
+      "CS154"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS265",
+    "title": "CS 265 - Cryptography and Computer Security",
+    "prerequisites": [
+      "CS166",
+      "CS149"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS266",
+    "title": "CS 266 - Topics in Information Security",
+    "prerequisites": [
+      "CS166"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS267",
+    "title": "CS 267 - Topics in Database Systems",
+    "prerequisites": [
+      "CS157B"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS268",
+    "title": "CS 268 - Topics in Wireless Mobile Networking",
+    "prerequisites": [
+      "CS158A"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS271",
+    "title": "CS 271 - Topics in Machine Learning",
+    "prerequisites": [
+      "CS157A"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS272",
+    "title": "CS 272 - Reinforcement Learning and Sequential Decision Making",
+    "prerequisites": [
+      "CS157A"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS273",
+    "title": "CS 273 - Topics in Natural Language Processing",
+    "prerequisites": [
+      "CS156",
+      "CS171"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS274",
+    "title": "CS 274 - Topics in Web Intelligence",
+    "prerequisites": [
+      "CS157A"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS276",
+    "title": "CS 276 - Machine Learning on Graphs",
+    "prerequisites": [
+      "CS146"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS280",
+    "title": "CS 280 - Graduate Individual Studies",
+    "prerequisites": [],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS286",
+    "title": "CS 286 - Advanced Topics in Computer Science",
+    "prerequisites": [],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS297",
+    "title": "CS 297 - Preparation for Writing Project or Thesis",
+    "prerequisites": [],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS298",
+    "title": "CS 298 - Master\u2019s Writing Project",
+    "prerequisites": [
+      "CS297",
+      "CS240"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS298B",
+    "title": "CS 298B - Bioinformatics Master\u2019s Project",
+    "prerequisites": [],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS299",
+    "title": "CS 299 - Master\u2019s Thesis",
+    "prerequisites": [
+      "CS297"
+    ],
+    "corequisites": [],
+    "units": 3
+  },
+  {
+    "course_id": "CS1022AS",
+    "title": "CS 1022AS - Support Course for CS 22A",
+    "prerequisites": [],
+    "corequisites": [
+      "CS22A"
+    ],
+    "units": 1
+  },
+  {
+    "course_id": "CS1290R",
+    "title": "CS 1290R - Culminating Experience Supervision",
+    "prerequisites": [],
+    "corequisites": [],
+    "units": 1
+  }
+]

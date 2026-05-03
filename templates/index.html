@@ -2,30 +2,208 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CoursePath</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enrollment Assistant — SJSU CS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
 </head>
-
 <body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="logo">
+                <span class="logo-mark">CP</span>
+                <div class="logo-text">
+                    <span class="logo-title">CoursePath</span>
+                    <span class="logo-sub">SJSU · Computer Science</span>
+                </div>
+            </div>
+            <nav class="tabs">
+                <button class="tab active" data-tab="upload">Transcript</button>
+                <button class="tab" data-tab="schedule">Schedule</button>
+                <button class="tab" data-tab="catalog">Catalog</button>
+                <button class="tab" data-tab="reviews">Reviews</button>
+                <button class="tab" data-tab="chat">AI Advisor</button>
+            </nav>
+        </div>
+    </header>
 
-<div class="container">
+    <!-- Main -->
+    <main class="main">
 
-    <h1>🎓 CoursePath</h1>
-    <p class="subtitle">Upload your transcript to get your course breakdown</p>
+        <!-- ── Upload Tab ── -->
+        <section class="tab-content active" id="tab-upload">
+            <div class="page-hero">
+                <h1 class="hero-title">Upload Your Transcript</h1>
+                <p class="hero-sub">We'll parse your completed courses and generate a personalized schedule.</p>
+            </div>
 
-    <form id="uploadForm">
-        <input type="file" id="fileInput" name="file" accept=".pdf" required>
-        <button type="submit">Upload Transcript</button>
-    </form>
+            <div class="upload-zone" id="dropZone">
+                <input type="file" id="fileInput" accept=".pdf" hidden>
+                <div class="upload-icon">📄</div>
+                <p class="upload-prompt">Drop your PDF transcript here</p>
+                <p class="upload-hint">or</p>
+                <button class="btn-primary" onclick="document.getElementById('fileInput').click()">Browse File</button>
+            </div>
 
-    <div class="card">
-        <h2>Extracted Courses</h2>
-        <pre id="output">Upload a transcript to see results...</pre>
+            <div id="uploadStatus" class="status-msg hidden"></div>
+
+            <div id="uploadResults" class="results-grid hidden">
+                <div class="result-card">
+                    <h3 class="card-label">Completed Courses</h3>
+                    <div id="completedList" class="course-tags"></div>
+                </div>
+                <div class="result-card">
+                    <h3 class="card-label">Ready to Take Next</h3>
+                    <div id="eligibleList" class="eligible-list"></div>
+                </div>
+            </div>
+
+            <!-- Inline schedule preview after upload -->
+            <div id="schedulePreview" class="schedule-preview hidden">
+                <h2 class="section-title">Your Recommended Schedule</h2>
+                <div id="previewSemesters" class="semesters-row"></div>
+            </div>
+        </section>
+
+        <!-- ── Schedule Tab ── -->
+        <section class="tab-content" id="tab-schedule">
+            <div class="page-hero">
+                <h1 class="hero-title">Schedule Planner</h1>
+                <p class="hero-sub">Manually enter completed courses or use your uploaded transcript.</p>
+            </div>
+
+            <div class="planner-controls card">
+                <div class="control-group">
+                    <label>Completed Courses (comma-separated)</label>
+                    <textarea id="manualCourses" placeholder="e.g. CS 46A, CS 46B, MATH 30, MATH 31" rows="3"></textarea>
+                </div>
+                <div class="control-row">
+                    <div class="control-group">
+                        <label>Semesters to plan</label>
+                        <select id="semCount">
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4" selected>4</option>
+                            <option value="6">6</option>
+                            <option value="8">8</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label>Courses per semester</label>
+                        <select id="perSem">
+                            <option value="3">3</option>
+                            <option value="4" selected>4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    <button class="btn-primary" id="generateBtn">Generate Schedule</button>
+                </div>
+            </div>
+
+            <div id="scheduleOutput" class="semesters-container"></div>
+        </section>
+
+        <!-- ── Catalog Tab ── -->
+        <section class="tab-content" id="tab-catalog">
+            <div class="page-hero">
+                <h1 class="hero-title">Course Catalog</h1>
+                <p class="hero-sub">Explore all CS courses, prerequisites, and student ratings.</p>
+            </div>
+
+            <div class="catalog-filters">
+                <input type="text" id="catalogSearch" placeholder="Search courses..." class="search-input">
+                <div class="filter-chips" id="categoryFilters"></div>
+            </div>
+
+            <div id="catalogGrid" class="catalog-grid"></div>
+        </section>
+
+        <!-- ── Reviews Tab ── -->
+        <section class="tab-content" id="tab-reviews">
+            <div class="page-hero">
+                <h1 class="hero-title">Review Board</h1>
+                <p class="hero-sub">Share your experience to help future students.</p>
+            </div>
+
+            <div class="reviews-layout">
+                <div class="review-form card">
+                    <h3 class="card-label">Leave a Review</h3>
+                    <div class="form-group">
+                        <label>Course</label>
+                        <select id="reviewCourse"></select>
+                    </div>
+                    <div class="form-group">
+                        <label>Professor</label>
+                        <input type="text" id="reviewProf" placeholder="Professor name">
+                    </div>
+                    <div class="form-group">
+                        <label>Rating</label>
+                        <div class="star-picker" id="starPicker">
+                            <span class="star" data-val="1">★</span>
+                            <span class="star" data-val="2">★</span>
+                            <span class="star" data-val="3">★</span>
+                            <span class="star" data-val="4">★</span>
+                            <span class="star" data-val="5">★</span>
+                        </div>
+                        <input type="hidden" id="reviewRating" value="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Your Name (optional)</label>
+                        <input type="text" id="reviewAuthor" placeholder="Anonymous">
+                    </div>
+                    <div class="form-group">
+                        <label>Comment</label>
+                        <textarea id="reviewComment" rows="4" placeholder="Share your thoughts about this course..."></textarea>
+                    </div>
+                    <button class="btn-primary" id="submitReview">Submit Review</button>
+                    <div id="reviewStatus" class="status-msg hidden"></div>
+                </div>
+
+                <div class="reviews-display">
+                    <div class="form-group">
+                        <label>View reviews for:</label>
+                        <select id="viewCourse" onchange="loadReviews(this.value)"></select>
+                    </div>
+                    <div id="reviewsList" class="reviews-list"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── AI Chat Tab ── -->
+        <section class="tab-content" id="tab-chat">
+            <div class="page-hero">
+                <h1 class="hero-title">AI Advisor</h1>
+                <p class="hero-sub">Ask anything about courses, prerequisites, or your path to graduation.</p>
+            </div>
+
+            <div class="chat-container card">
+                <div class="chat-messages" id="chatMessages">
+                    <div class="chat-msg assistant">
+                        <div class="msg-bubble">
+                            Hi! I'm your SJSU CS enrollment advisor. Upload your transcript first for personalized advice, or ask me anything about courses, prerequisites, or degree planning.
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-input-row">
+                    <input type="text" id="chatInput" placeholder="Ask about courses, prerequisites, schedule..." onkeydown="if(event.key==='Enter') sendChat()">
+                    <button class="btn-primary" onclick="sendChat()">Send</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Course detail modal -->
+    <div id="courseModal" class="modal hidden">
+        <div class="modal-backdrop" onclick="closeModal()"></div>
+        <div class="modal-card">
+            <button class="modal-close" onclick="closeModal()">✕</button>
+            <div id="modalContent"></div>
+        </div>
     </div>
 
-</div>
-
-<script src="{{ url_for('static', filename='script.js') }}"></script>
-
+    <script src="/static/script.js"></script>
 </body>
 </html>

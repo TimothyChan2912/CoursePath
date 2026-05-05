@@ -2,6 +2,7 @@
   {
     "course_id": "CS22A",
     "title": "CS 22A - Python for Everyone",
+    "description": "Introduction to Python programming in interesting, relevant, and practical contexts. Programming skills are developed to solve problems in such fields as life sciences, mathematics, and business. Fundamental programming constructs: data structures and algorithms, iterations, and functions. Course is intended for students who have no prior programming experience.",
     "prerequisites": [],
     "corequisites": [
       "CS1022AS"
@@ -11,6 +12,7 @@
   {
     "course_id": "CS22B",
     "title": "CS 22B - Python Programming for Data Analysis",
+    "description": "Hands-on Python programming skills for data analysis. Skills include finding a solution for a given problem and casting it as an algorithm, translating an algorithm to executable code, and debugging and testing code. Applications focus on computational techniques to understand, analyze, and visualize data.",
     "prerequisites": [
       "CS22A"
     ],
@@ -20,6 +22,7 @@
   {
     "course_id": "CS25",
     "title": "CS 25 - The Digital World and Society",
+    "description": "The secure, effective and ethical use of information technology. The effect of such technology on people and institutions. Technology-related challenges to society and policy. Frameworks for the analysis of information technology with respect to its cultural, historical, environmental, and spatial contexts.",
     "prerequisites": [],
     "corequisites": [],
     "units": 3
@@ -27,23 +30,25 @@
   {
     "course_id": "CS42",
     "title": "CS 42 - Discrete Mathematics",
+    "description": "Sets, logic, methods of proof including mathematical induction, functions, relations, elementary combinatorics, probability, Boolean algebras.",
     "prerequisites": [
-      "MATH18B",
       "MATH18A",
+      "MATH18B",
       "MATH19"
     ],
     "corequisites": [
+      "MATH19",
       "MATH42W",
       "MATH18A",
-      "MATH18B",
       "MATH42",
-      "MATH19"
+      "MATH18B"
     ],
     "units": 3
   },
   {
     "course_id": "CS46A",
     "title": "CS 46A - Introduction to Programming",
+    "description": "Introduction to programming for anyone new to the field or who needs a refresher with basic Java programming syntax, object-oriented paradigm, control structures, iteration, etc. Hands-on activities in writing, compiling, executing, and debugging programs for solving real-world problems. Lecture 3 hours/lab 3 hours.",
     "prerequisites": [
       "MATH1"
     ],
@@ -53,6 +58,7 @@
   {
     "course_id": "CS46AW",
     "title": "CS 46AW - Introduction to Programming Workshop",
+    "description": "Designed to help all students excel in Introduction to Programming. Students work in groups on challenging problems to help them understand programming concepts more deeply and lay the groundwork for success in future courses. Repeatable for a total of 2 units.",
     "prerequisites": [
       "CS46AX",
       "CS46A"
@@ -63,6 +69,7 @@
   {
     "course_id": "CS46AX",
     "title": "CS 46AX - Introduction to Programming",
+    "description": "Introduction to programming for anyone new to the field or who needs a refresher with basic Java programming syntax, object-oriented paradigm, control structures, iteration, etc. Hands-on activities in writing, compiling, executing, and debugging programs for solving real-world problems.",
     "prerequisites": [
       "MATH1"
     ],
@@ -74,13 +81,14 @@
   {
     "course_id": "CS46B",
     "title": "CS 46B - Introduction to Data Structures",
+    "description": "Fundamental data structures including lists, stacks, queues, and trees, with algorithms for inserting, deleting, searching, and sorting information within them efficiently. Additional topics include Big-O analysis, exceptions, hashing, Java collections framework, generics, iterators, interfaces, recursion, and debugging. Weekly hands-on activities. Lecture 3 hours/lab 3 hours.",
     "prerequisites": [
       "CS46AX",
-      "CS46AW",
+      "MATH19",
       "MATH18A",
       "MATH18B",
-      "MATH19",
-      "CS46A"
+      "CS46A",
+      "CS46AW"
     ],
     "corequisites": [],
     "units": 4
@@ -88,10 +96,11 @@
   {
     "course_id": "CS47",
     "title": "CS 47 - Introduction to Computer Systems",
+    "description": "Instruction sets, assembly language and assemblers, linkers and loaders, data representation and manipulation, interrupts, pointers, function calls, argument passing, and basic gate-level digital logic design.",
     "prerequisites": [
-      "CS42",
+      "MATH42",
       "CS46B",
-      "MATH42"
+      "CS42"
     ],
     "corequisites": [],
     "units": 3
@@ -99,6 +108,7 @@
   {
     "course_id": "CS48",
     "title": "CS 48 - Applied Algorithms",
+    "description": "Creating and implementing algorithms to solve problems. Techniques covered include using built-in collection classes, bitwise operators, modulo operator, and input/output classes. Emphasis on using data structures learned in CS 46B. Students write a Java program every week.",
     "prerequisites": [
       "CS46B"
     ],
@@ -108,6 +118,7 @@
   {
     "course_id": "CS49C",
     "title": "CS 49C - Programming in C",
+    "description": "Beginning course in the C language.",
     "prerequisites": [],
     "corequisites": [],
     "units": 3
@@ -115,6 +126,7 @@
   {
     "course_id": "CS49J",
     "title": "CS 49J - Programming in Java",
+    "description": "Introduction to the Java programming language and libraries. Topics include fundamental data types and control structures, object-oriented programming, string processing, input/output, and error handling. Use of Java libraries for mathematics, graphics, collections, and for user interfaces.",
     "prerequisites": [
       "CS46B"
     ],
@@ -124,20 +136,22 @@
   {
     "course_id": "CS50",
     "title": "CS 50 - Scientific Computing I",
+    "description": "Computer systems and structured programming, emphasizing solutions of problems in the atmospheric sciences using Python programming. Includes the UNIX operating system, mass data handling and data visualization. Lecture 1 hour/Lab 3 hours.",
     "prerequisites": [
       "MATH30"
     ],
     "corequisites": [
       "MATH31",
-      "CHEM1A",
+      "METR60",
       "PHYS50",
-      "METR60"
+      "CHEM1A"
     ],
     "units": 2
   },
   {
     "course_id": "CS85A",
     "title": "CS 85A - Practical Computing Topics",
+    "description": "Computing topics of current interest in industrial practice. Emphasis on effective use and integration of software/hardware. Different topics may be offered at different times in a short-course lecture/lab format. Different versions of this course may be repeated for credit.",
     "prerequisites": [],
     "corequisites": [],
     "units": 1
@@ -145,6 +159,7 @@
   {
     "course_id": "CS92",
     "title": "CS 92 - International Program Studies",
+    "description": "Study Abroad and Away transfer credit course. Study Abroad and Away provides students the opportunity to study abroad on long term programs (Exchange Programs, CSU International Programs, and International Student Exchange Programs) and short-term programs (Faculty-Led Programs and Summer School Abroad Programs) for academic credit, offering Alternative Break Programs for cultural immersion, and designing other globally focused opportunities. This course is designated as a placeholder course for Study Abroad and Away programs.",
     "prerequisites": [],
     "corequisites": [],
     "units": 6
@@ -152,6 +167,7 @@
   {
     "course_id": "CS100W",
     "title": "CS 100W - Technical Writing Workshop",
+    "description": "Advanced writing through preparation of technical reports and presentations. Improving skills for writing subject-related reports, project proposals and personal resumes through practice and evaluation. Course assignments will be related to issues concerning careers in computer science. Satisfies Writing in the Disciplines (WID).",
     "prerequisites": [],
     "corequisites": [],
     "units": 3
@@ -159,6 +175,7 @@
   {
     "course_id": "CS108",
     "title": "CS 108 - Introduction to Game Studies",
+    "description": "Introduction to the systems, design, history, and cultural analysis of games with emphasis on critical studies, development, technological literacy, markets and impact on society. Misc/Activity: 6 hours activity.",
     "prerequisites": [],
     "corequisites": [],
     "units": 3
@@ -166,9 +183,10 @@
   {
     "course_id": "CS116A",
     "title": "CS 116A - Introduction to Computer Graphics",
+    "description": "Vector geometry, geometric transformations and the graphics pipeline. Basic raster graphics algorithms for drawing discrete lines, clipping, visible surface determination and shading. Display of curves and surfaces. Graphics data structures.",
     "prerequisites": [
-      "MATH39",
       "MATH31",
+      "MATH39",
       "CS146"
     ],
     "corequisites": [],
@@ -177,6 +195,7 @@
   {
     "course_id": "CS116B",
     "title": "CS 116B - Computer Graphics Algorithms",
+    "description": "In-depth discussion of algorithms and techniques used in computer graphics and their implementation. Topics include: animation, fractals, anti-aliasing, fill algorithms, visible surface algorithms, color and shading, ray tracing, radiosity and texture maps. Substantial programming required.",
     "prerequisites": [
       "CS116A"
     ],
@@ -186,6 +205,7 @@
   {
     "course_id": "CS122",
     "title": "CS 122 - Advanced Programming with Python",
+    "description": "Advanced features of the Python programming language with emphasis on programming practice. Course involves substantial programming projects in Python.",
     "prerequisites": [
       "CS146"
     ],
@@ -195,9 +215,10 @@
   {
     "course_id": "CS123A",
     "title": "CS 123A - Bioinformatics I",
+    "description": "Introduction to algorithms, tools, and databases of Bioinformatics. Biological foundations: central dogma; sequence databases; pairwise alignment algorithms and tools; Blast; phylogenetics. Possible additional topics: protein structure, multiple sequence alignment, next-gen sequencing, epigenetics, CRISPR. Project applying these approaches to real-world problems.",
     "prerequisites": [
-      "BIOL31",
-      "CS46B"
+      "CS46B",
+      "BIOL31"
     ],
     "corequisites": [],
     "units": 3
@@ -205,10 +226,11 @@
   {
     "course_id": "CS123B",
     "title": "CS 123B - Bioinformatics II",
+    "description": "Advanced Bioinformatics algorithms, tools, databases. Biological background; protein structure/function; sequencing technology; sequence identification; transcriptomics; metagenomics; CRISPR. Possible additional topics: functional genomics; protein networks; drug discovery; pathway analysis; immunoinformatics; analysis pipelines; machine learning applications. Project applying advanced approaches to real-world problems.",
     "prerequisites": [
       "CS123A",
-      "SE123A",
-      "BIOL123A"
+      "BIOL123A",
+      "SE123A"
     ],
     "corequisites": [],
     "units": 3
@@ -216,9 +238,10 @@
   {
     "course_id": "CS131",
     "title": "CS 131 - Processing Big Data - Tools and Techniques",
+    "description": "In-depth study of essential tools and techniques for processing big data over the UNIX operating system and/or other operating systems. On UNIX, it includes using grep, sed, awk, join, and programming advanced shell scripts for manipulating big data.",
     "prerequisites": [
-      "CS22B",
-      "CS46B"
+      "CS46B",
+      "CS22B"
     ],
     "corequisites": [],
     "units": 3
@@ -226,6 +249,7 @@
   {
     "course_id": "CS133",
     "title": "CS 133 - Introduction to Data Visualization",
+    "description": "Topics in data analysis and visualization. Covers tools and techniques to efficiently analyze and visualize large volumes of data in meaningful ways to help solve complex problems in fields such as life sciences, business, and social sciences.",
     "prerequisites": [
       "CS22B",
       "CS146"
@@ -236,10 +260,11 @@
   {
     "course_id": "CS134",
     "title": "CS 134 - Computer Game Design and Programming",
+    "description": "Architectures and object-oriented patterns for computer game design. Animation, simulation, user interfaces, graphics, and intelligent behaviors. Team projects using an existing game engine framework.",
     "prerequisites": [
-      "CS151",
       "CMPE135",
-      "CS146"
+      "CS146",
+      "CS151"
     ],
     "corequisites": [],
     "units": 3
@@ -247,9 +272,10 @@
   {
     "course_id": "CS136",
     "title": "CS 136 - Introduction to Computer Vision",
+    "description": "Fundamental and advanced Computer Vision algorithms. Basic image processing techniques (image convolution, and region and edge detection). Complex vision algorithms for contour detection, depth perception, dynamic vision, and object recognition. Core topics (color processing, texture analysis, and visual geometry).",
     "prerequisites": [
-      "MATH39",
       "CS49C",
+      "MATH39",
       "CS146"
     ],
     "corequisites": [],
@@ -258,16 +284,17 @@
   {
     "course_id": "CS143C",
     "title": "CS 143C - Numerical Analysis and Scientific Computing",
+    "description": "Development and comparison of important algorithms for scientific computing in terms of efficiency, accuracy and reliability. Topics include nonlinear equations, interpolation, approximation theory, differentiation, integration, differential equations, numerical stability and error analysis. Substantial assignments using contemporary software packages and professional subprogram libraries.",
     "prerequisites": [
-      "CS22A",
-      "MATH33A",
       "CS49C",
       "MATH34",
       "MATH50",
-      "MATH32",
-      "CS49J",
+      "CS46A",
       "MATH33LA",
-      "CS46A"
+      "MATH32",
+      "CS22A",
+      "MATH33A",
+      "CS49J"
     ],
     "corequisites": [],
     "units": 3
@@ -275,12 +302,13 @@
   {
     "course_id": "CS143M",
     "title": "CS 143M - Numerical Analysis and Scientific Computing",
+    "description": "Development and comparison of important algorithms for scientific computing in terms of efficiency, accuracy and reliability. Topics include systems of linear equations-direct and iterative methods, least squares problems, eigenvalues and eigenvectors, numerical stability and error analysis. Substantial assignments using contemporary software packages and professional subprogram libraries.",
     "prerequisites": [
-      "CS22A",
-      "MATH39",
       "CS49C",
       "MATH50",
-      "CS46A"
+      "MATH39",
+      "CS46A",
+      "CS22A"
     ],
     "corequisites": [],
     "units": 3
@@ -288,9 +316,10 @@
   {
     "course_id": "CS144",
     "title": "CS 144 - Advanced C++ Programming",
+    "description": "Advanced features of C++, including operator overloading, memory management, templates, exceptions, multiple inheritance, RTTI, namespaces, tools.",
     "prerequisites": [
-      "CS46B",
-      "CS49C"
+      "CS49C",
+      "CS46B"
     ],
     "corequisites": [],
     "units": 3
@@ -298,11 +327,12 @@
   {
     "course_id": "CS146",
     "title": "CS 146 - Data Structures and Algorithms",
+    "description": "Implementations of advanced tree structures, priority queues, heaps, directed and undirected graphs. Advanced searching and sorting techniques (radix sort, heapsort, mergesort, and quicksort). Design and analysis of data structures and algorithms. Divide-and-conquer, greedy, and dynamic programming algorithm design techniques.",
     "prerequisites": [
-      "CS46B",
       "CS48",
       "MATH30",
       "MATH42",
+      "CS46B",
       "CS49J"
     ],
     "corequisites": [],
@@ -311,9 +341,10 @@
   {
     "course_id": "CS147",
     "title": "CS 147 - Computer Architecture",
+    "description": "Introduction to the basic concepts of computer hardware structure and design, including processors and arithmetic logic units, pipelining, and memory hierarchy.",
     "prerequisites": [
-      "CS47",
-      "CMPE102"
+      "CMPE102",
+      "CS47"
     ],
     "corequisites": [],
     "units": 3
@@ -321,6 +352,7 @@
   {
     "course_id": "CS148",
     "title": "CS 148 - Applied Algorithms II",
+    "description": "Applying basic data structures to implement programs to solve problems. Emphasis on using the data structures and algorithms learned in CS 146 . Students will be expected to write a Java program every week.",
     "prerequisites": [
       "CS146"
     ],
@@ -330,9 +362,10 @@
   {
     "course_id": "CS149",
     "title": "CS 149 - Operating Systems",
+    "description": "Fundamentals: Contiguous and non-contiguous memory management; processor scheduling and interrupts; concurrent, mutually exclusive, synchronized and deadlocked processes; parallel computing; files. Substantial programming project required.",
     "prerequisites": [
-      "CS47",
       "CMPE102",
+      "CS47",
       "CS146"
     ],
     "corequisites": [],
@@ -341,10 +374,11 @@
   {
     "course_id": "CS151",
     "title": "CS 151 - Object-Oriented Design",
+    "description": "Design of classes and interfaces. Object-oriented design methodologies and notations. Design patterns. Generics and reflection. Exception handling. Concurrent programming. Graphical user interface programming. Software engineering concepts and tools. Required team-based programming assignment.",
     "prerequisites": [
-      "CS49J",
-      "CS46B",
       "CS48",
+      "CS46B",
+      "CS49J",
       "MATH42"
     ],
     "corequisites": [],
@@ -353,6 +387,7 @@
   {
     "course_id": "CS152",
     "title": "CS 152 - Programming Paradigms",
+    "description": "Programming language syntax and semantics. Data types and type checking. Scope, bindings, and environments. Functional and logic programming paradigms, and comparison to other paradigms. Extensive coverage of a functional language.",
     "prerequisites": [
       "CMPE135",
       "CS151"
@@ -363,10 +398,11 @@
   {
     "course_id": "CS153",
     "title": "CS 153 - Concepts of Compiler Design",
+    "description": "Theoretical aspects of compiler design, including parsing context free languages, lexical analysis, translation specification and machine-independent code generation. Programming projects to demonstrate design topics.",
     "prerequisites": [
-      "CS47",
       "CS154",
       "CMPE102",
+      "CS47",
       "CS146"
     ],
     "corequisites": [],
@@ -375,6 +411,7 @@
   {
     "course_id": "CS154",
     "title": "CS 154 - Formal Languages and Computability",
+    "description": "Finite automata, context-free languages, Turing machines, computability.",
     "prerequisites": [
       "CS46B",
       "MATH42"
@@ -385,6 +422,7 @@
   {
     "course_id": "CS155",
     "title": "CS 155 - Introduction to the Design and Analysis of Algorithms",
+    "description": "Algorithm design techniques: dynamic programming, greedy algorithms, Euclidean and extended Euclidean algorithms, Discrete and Fast Fourier transforms. Analysis of algorithms, intractable problems and NP-completeness. Additional topics selected from: selection algorithms and adversary arguments, approximation algorithms, parallel algorithms, and randomized algorithms.",
     "prerequisites": [
       "CS146"
     ],
@@ -394,6 +432,7 @@
   {
     "course_id": "CS156",
     "title": "CS 156 - Introduction to Artificial Intelligence",
+    "description": "Basic concepts and techniques of artificial intelligence: problem solving, search, deduction, intelligent agents, knowledge representation. Topics chosen from logic programming, game playing, planning, machine learning, natural language, neural nets, robotics.",
     "prerequisites": [
       "CS146"
     ],
@@ -403,6 +442,7 @@
   {
     "course_id": "CS157A",
     "title": "CS 157A - Introduction to Database Management Systems",
+    "description": "Relational data model. Relational algebra. Standard SQL. Design theory. Conceptual data modeling. Integrity constraints and triggers. Views and indexes. Transactions. Distributed data management. Interactive and programmatic interfaces to database systems. Application programming project using a prominent database system.",
     "prerequisites": [
       "CS146"
     ],
@@ -412,6 +452,7 @@
   {
     "course_id": "CS157B",
     "title": "CS 157B - Database Management Systems II",
+    "description": "Survey course. Object-oriented data model, definition language, query language. Object relational database systems. Database trends like active, temporal, multimedia, deductive databases. Web database topics, namely, architectures, introduction to interface languages. Team projects.",
     "prerequisites": [
       "CS157A"
     ],
@@ -421,6 +462,7 @@
   {
     "course_id": "CS157C",
     "title": "CS 157C - NoSQL Database Systems",
+    "description": "NoSQL Data Models: Key-Value, Wide Column, Document, and Graph Stores. CAP Theorem. Distribution Models. Current NoSQL Databases: Configuration and Deployment, CRUD operations, Indexing, Replication, and Sharding. Public Data Sets. API Coding and Application Development. NoSQL in the Cloud. Team Project.",
     "prerequisites": [
       "CS157A"
     ],
@@ -430,9 +472,10 @@
   {
     "course_id": "CS158A",
     "title": "CS 158A - Computer Networks",
+    "description": "Introduction to computer networks, including network layered architectures, local and wide area networks, mobile wireless networks, Internet TCP/IP protocol suite, network resource management, network programming, network performance, network security, network applications.",
     "prerequisites": [
-      "CS47",
-      "CS146"
+      "CS146",
+      "CS47"
     ],
     "corequisites": [],
     "units": 3
@@ -440,9 +483,10 @@
   {
     "course_id": "CS158B",
     "title": "CS 158B - Computer Network Management",
+    "description": "Principles and technologies of network management: reference models, functions (fault, configuration, performance, security and accounting management), management information, communication protocols, integration, and assessment. Network security and cyber defense: cryptography, key distribution, authentication protocols, network attacks, access control, and example systems.",
     "prerequisites": [
-      "CMPE148",
-      "CS158A"
+      "CS158A",
+      "CMPE148"
     ],
     "corequisites": [],
     "units": 3
@@ -450,6 +494,7 @@
   {
     "course_id": "CS159",
     "title": "CS 159 - Introduction to Parallel Processing",
+    "description": "Major parallel architectures: shared memory, distributed memory, SIMD, MIMD. Parallel algorithms: techniques for scientific applications, measures of performance. Parallel programming: principles and implementations in various languages. Assignments on available parallel and vector computers.",
     "prerequisites": [
       "CS146"
     ],
@@ -459,10 +504,11 @@
   {
     "course_id": "CS160",
     "title": "CS 160 - Software Engineering",
+    "description": "Software engineering principles, software process and process models, requirements elicitation and analysis, design, configuration management, quality control, project planning, social and ethical issues. Required team-based software development, including written requirements specification and design documentation, oral presentation, and tool use.",
     "prerequisites": [
+      "CS146",
       "CS151",
-      "CS100W",
-      "CS146"
+      "CS100W"
     ],
     "corequisites": [],
     "units": 3
@@ -470,6 +516,7 @@
   {
     "course_id": "CS161",
     "title": "CS 161 - Software Project",
+    "description": "A substantial project based on material from an advanced area of computer science. Includes lectures on the project topic and the design and testing of software systems. At least 50% of the course grade to be based on the project.",
     "prerequisites": [
       "CS160"
     ],
@@ -479,10 +526,11 @@
   {
     "course_id": "CS163",
     "title": "CS 163 - Data Science Senior Project",
+    "description": "Semester-long individual or team project. Apply knowledge and technology to solve a realistic data science problem, including the entire process of collecting and processing real-world data, applying suitable analytic methods, explaining analysis outcomes, and making appropriate recommendations.",
     "prerequisites": [
       "CS131",
-      "CS171",
       "CS156",
+      "CS171",
       "CS100W"
     ],
     "corequisites": [],
@@ -491,11 +539,12 @@
   {
     "course_id": "CS166",
     "title": "CS 166 - Information Security",
+    "description": "Fundamental security topics including cryptography, authentication, access control, network security, security protocols, artificial intelligence, software security. Networking basics are covered. Additional security topics selected from multilevel security, biometrics, blockchain, information warfare, e-commerce, intrusion detection, system evaluation and assurance.",
     "prerequisites": [
-      "CS47",
-      "CMPE102",
       "CMPE120",
-      "CS146"
+      "CMPE102",
+      "CS146",
+      "CS47"
     ],
     "corequisites": [],
     "units": 3
@@ -503,6 +552,7 @@
   {
     "course_id": "CS168",
     "title": "CS 168 - Blockchain and Cryptocurrencies",
+    "description": "Cryptocurrencies and the blockchain. Centralized clearinghouse solutions vs. distributed consensus solutions. The blockchain and its validation approaches: proof-of-work, proof-of-stake, proof-of-storage, etc. Cryptocurrency wallets. Smart contracts.",
     "prerequisites": [
       "CS166"
     ],
@@ -512,6 +562,7 @@
   {
     "course_id": "CS171",
     "title": "CS 171 - Introduction to Machine Learning",
+    "description": "Covers a selection of classic machine learning techniques including backpropagation and several currently popular neural networking and deep learning architectures. Hands-on lab exercises are a significant part of the course. A major project is required.",
     "prerequisites": [
       "CS146"
     ],
@@ -521,6 +572,7 @@
   {
     "course_id": "CS174",
     "title": "CS 174 - Server-side Web Programming",
+    "description": "Development and deployment of multi-tier web-based applications. Introduction to HTML, XML, enterprise design patterns, web services and database access.",
     "prerequisites": [
       "CS46B"
     ],
@@ -530,10 +582,11 @@
   {
     "course_id": "CS175",
     "title": "CS 175 - Mobile Device Development",
+    "description": "Mobile Platform APIs including those for networking, touch, graphics, data, location, and camera. Testing and profiling on devices and emulators/simulators.",
     "prerequisites": [
+      "CS46A",
       "CS47",
-      "CS49J",
-      "CS46A"
+      "CS49J"
     ],
     "corequisites": [],
     "units": 3
@@ -541,6 +594,7 @@
   {
     "course_id": "CS176",
     "title": "CS 176 - Introduction to Social Network Analysis",
+    "description": "The Web and social networks are complex networks. We study them by unifying tools from different disciplines: computer science, economics, and social sciences. Topics include graph theory, information networks, search, advertisement, auctions.",
     "prerequisites": [
       "CS146"
     ],
@@ -550,6 +604,7 @@
   {
     "course_id": "CS180",
     "title": "CS 180 - Individual Studies",
+    "description": "Individual study in a specific field.",
     "prerequisites": [],
     "corequisites": [],
     "units": 3
@@ -557,6 +612,7 @@
   {
     "course_id": "CS180H",
     "title": "CS 180H - Individual Studies for Honors",
+    "description": "Senior project on advanced topics in computer science as determined by the instructor. Written paper or oral presentation of the project required. Intended for students graduating with departmental honors.",
     "prerequisites": [],
     "corequisites": [],
     "units": 3
@@ -564,6 +620,7 @@
   {
     "course_id": "CS185A",
     "title": "CS 185A - Advanced Practical Computing Topics",
+    "description": "Computing topics of current interest in industrial practice. Emphasis on effective use and integration of software/hardware. Different topics may be offered at different times in a short-course lecture/lab format and may be repeated for credit.",
     "prerequisites": [],
     "corequisites": [],
     "units": 1
@@ -571,6 +628,7 @@
   {
     "course_id": "CS185C",
     "title": "CS 185C - Advanced Practical Computing Topics",
+    "description": "Computing topics of current interest in industrial practice. Emphasis on effective use and integration of software/hardware. Different topics may be offered at different times in a short-course lecture/lab format and may be repeated for credit.",
     "prerequisites": [],
     "corequisites": [],
     "units": 3
@@ -578,6 +636,7 @@
   {
     "course_id": "CS190",
     "title": "CS 190 - Internship Project",
+    "description": "Work on an approved semester-long paid project at an industrial site. Meet once per week on campus. Progress reports, oral presentations, final report, and evaluation by project supervisor will be used to demonstrate the acquisition of skills identified as goals prior to the start of the assignment. Course may be repeated for credit for up to 3 units.",
     "prerequisites": [
       "CS146"
     ],
@@ -587,6 +646,7 @@
   {
     "course_id": "CS190I",
     "title": "CS 190I - Internship Project",
+    "description": "Work on an approved semester-long paid project at an industrial site. Meet once per week on campus. Progress reports, oral presentations, final report, and evaluation by project supervisor will be used to demonstrate the acquisition of skills identified as goals prior to the start of the assignment.",
     "prerequisites": [
       "CS146"
     ],
@@ -596,6 +656,7 @@
   {
     "course_id": "CS192",
     "title": "CS 192 - International Program Studies",
+    "description": "Study Abroad and Away transfer credit course. Study Abroad and Away provides students the opportunity to study abroad on long term programs (Exchange Programs, CSU International Programs, and International Student Exchange Programs) and short-term programs (Faculty-Led Programs and Summer School Abroad Programs) for academic credit, offering Alternative Break Programs for cultural immersion, and designing other globally focused opportunities. This course is designated as a placeholder course for Study Abroad and Away programs.",
     "prerequisites": [],
     "corequisites": [],
     "units": 6
@@ -603,6 +664,7 @@
   {
     "course_id": "CS200W",
     "title": "CS 200W - Graduate Technical Writing",
+    "description": "Graduate technical writing workshop to develop advanced communication skills that will meet the professional needs of computer scientists, along with research methodologies and proper documentation for the master\u2019s thesis project. Satisfies GWAR: Graduation Writing Assessment Requirement.",
     "prerequisites": [],
     "corequisites": [],
     "units": 3
@@ -610,6 +672,7 @@
   {
     "course_id": "CS216",
     "title": "CS 216 - Physically Based Modeling for Computer Graphics",
+    "description": "Course provides a physically based approach to creating realistic images and animation applicable to film, games and other industries. In a project-based approach, students will study the algorithms commonly used for animation and modeling in computer graphics.ourse provides a physically based approach to creating realistic images and animation applicable to film, games and other industries. In a project-based approach, students will study the algorithms commonly used for animation and modeling in computer graphics.",
     "prerequisites": [
       "CS116A"
     ],
@@ -619,6 +682,7 @@
   {
     "course_id": "CS218",
     "title": "CS 218 - Topics in Cloud Computing",
+    "description": "Topics in cloud computing, including distributed system models, virtual machines, virtualization, cloud platform architectures (IaaS, PaaS, SaaS), service-oriented architectures, cloud programming and software environments, peer-to-peer computing, ubiquitous cloud, cloud security and trust management.",
     "prerequisites": [
       "CS149"
     ],
@@ -628,10 +692,11 @@
   {
     "course_id": "CS223",
     "title": "CS 223 - Advanced Bioinformatics",
+    "description": "The course investigates algorithms for solving computational problems in bioinformatics, and the life processes underlying those algorithms. Metagenomics, bioinformatic machine learning, single-cell RNA sequencing, variant discovery. Possible additional topics: genome assembly, advanced phylogenetics, long-read sequencing, and structural bioinformatics.",
     "prerequisites": [
+      "BIOL123B",
       "SE123B",
-      "CS123B",
-      "BIOL123B"
+      "CS123B"
     ],
     "corequisites": [],
     "units": 3
@@ -639,11 +704,12 @@
   {
     "course_id": "CS224",
     "title": "CS 224 - Next Generation Sequencing & Genome Assembly",
+    "description": "Genomic concepts and methods with a focus on Next Generation Sequencing (NGS) are presented. The practice and methods of collecting, analyzing, and assembling DNA and RNA sequences using de novo and reference-based methods along with variant calling are also presented.",
     "prerequisites": [
       "MATH162",
-      "CS171",
       "CS156",
-      "BIOL123B"
+      "BIOL123B",
+      "CS171"
     ],
     "corequisites": [],
     "units": 3
@@ -651,11 +717,12 @@
   {
     "course_id": "CS225",
     "title": "CS 225 - Topics in Sequence-based Machine Learning for Bioinformatics",
+    "description": "A study of recent advances in machine learning methods with applications to solving sequence analysis problems in molecular biology. The methods examined include word embeddings, vector space representations, language models, and deep learning architectures. A substantial course project is required.",
     "prerequisites": [
       "MATH162",
-      "CS171",
       "CS156",
-      "BIOL123B"
+      "BIOL123B",
+      "CS171"
     ],
     "corequisites": [],
     "units": 3
@@ -663,6 +730,7 @@
   {
     "course_id": "CS228",
     "title": "CS 228 - Biometric Security with AI",
+    "description": "Applied biometric security with AI and ML, including biometrics systems, such as fingerprint, face, Iris, palm, gait, keystroke. Machine Learning and Deep Learning driven authentication and analysis. Security of ML approaches, data poisoning attacks and spoof resistant systems. A substantial course project is required.",
     "prerequisites": [
       "CS171"
     ],
@@ -672,9 +740,10 @@
   {
     "course_id": "CS235",
     "title": "CS 235 - User Interface Design",
+    "description": "Human-computer interaction principles. Direct manipulation, focus plus context, interaction history; interfaces for websites and website collections; usability testing; role of metaphors; case studies; advanced topics include information visualization, interfaces for collaboration, intelligent interfaces, and software agents.",
     "prerequisites": [
-      "CS116A",
-      "CS130"
+      "CS130",
+      "CS116A"
     ],
     "corequisites": [],
     "units": 3
@@ -682,6 +751,7 @@
   {
     "course_id": "CS247",
     "title": "CS 247 - Advanced Computer Architecture",
+    "description": "Advanced topics in vector architectures, including: pipelined architectures, dataflow computers, VLSI architectures, butterfly connections; bus and memory architectures; cache structures; hardware implementations of algorithms.",
     "prerequisites": [
       "CS147",
       "CS149"
@@ -692,6 +762,7 @@
   {
     "course_id": "CS249",
     "title": "CS 249 - Distributed Computing",
+    "description": "Current issues in operating systems, including multiprocessor systems and distributed computing, networks, security and performance. Case studies of current operating systems.",
     "prerequisites": [
       "CS149"
     ],
@@ -701,6 +772,7 @@
   {
     "course_id": "CS251",
     "title": "CS 251 - Obj Oriented Anlys",
+    "description": "Introduction to important concepts, activities, and artifacts of the analysis and design phases of object-oriented software development. Use of CASE tools, UML, and pattern catalogs to build requirements models, domain models, design models, and reusable frameworks for a variety of software systems.",
     "prerequisites": [
       "CS160"
     ],
@@ -710,6 +782,7 @@
   {
     "course_id": "CS252",
     "title": "CS 252 - Advanced Programming Language Principles",
+    "description": "Language design and paradigms, including concepts underlying functional, logic, object-oriented and parallel paradigms. Theoretical foundations, including lambda calculus, denotational and axiomatic semantics. Proofs of program correctness. Programming projects emphasizing different aspects of language design.",
     "prerequisites": [
       "CS152"
     ],
@@ -719,6 +792,7 @@
   {
     "course_id": "CS253",
     "title": "CS 253 - Advanced Compiler Design",
+    "description": "Review of attribute analysis and static semantic evaluation. Runtime environments and code generation. Basic blocks and flow graphs. Register allocation and storage classes. Common subexpression elimination and constant propagation. Loop optimizations. Global data flow analysis. Completion of a code optimization project.",
     "prerequisites": [
       "CS153"
     ],
@@ -728,6 +802,7 @@
   {
     "course_id": "CS254",
     "title": "CS 254 - Theory of Computation",
+    "description": "Models of computation; decidability; complexity measures; hierarchies; P, NP and other complexity classes; intractable problems.",
     "prerequisites": [
       "CS154"
     ],
@@ -737,6 +812,7 @@
   {
     "course_id": "CS255",
     "title": "CS 255 - Design and Analysis of Algorithms",
+    "description": "Randomized algorithms. Parallel algorithms. Distributed algorithms. NP-completeness of particular problems. Approximation algorithms.",
     "prerequisites": [
       "CS155"
     ],
@@ -746,6 +822,7 @@
   {
     "course_id": "CS256",
     "title": "CS 256 - Topics in Artificial Intelligence",
+    "description": "Introduction to topics in artificial intelligence such as problem solving methods, game playing, understanding natural languages, pattern recognition, computer vision and the general problem of representing knowledge. Students will be expected to use LISP.",
     "prerequisites": [
       "CS156"
     ],
@@ -755,6 +832,7 @@
   {
     "course_id": "CS257",
     "title": "CS 257 - Database System Principles",
+    "description": "Design management and performance issues on: file organization and access methods, buffer management and storage management. Query processing and query optimization, transaction management, recovery, and concurrency control techniques. Reliability, protection and integrity techniques. Extensive programming project.",
     "prerequisites": [
       "CS157B"
     ],
@@ -764,6 +842,7 @@
   {
     "course_id": "CS258",
     "title": "CS 258 - Computer Communication Systems",
+    "description": "Design, analysis and survey of the latest advancements in network and Internet technologies, such as supporting TCP/IP over various network media, software-defined networks, networks supporting cloud computing, network security, peer-to-peer and overlay networks, and quality of services.",
     "prerequisites": [
       "CS158A"
     ],
@@ -773,6 +852,7 @@
   {
     "course_id": "CS259",
     "title": "CS 259 - Advanced Parallel Processing",
+    "description": "An advanced hardware architecture and software development class focused on multi-threaded, parallel processing algorithms and techniques. A study of high-performance parallel hardware architectures and parallel programming languages. Applications of parallel and GPU processing, including computer gaming.",
     "prerequisites": [],
     "corequisites": [],
     "units": 3
@@ -780,9 +860,10 @@
   {
     "course_id": "CS262",
     "title": "CS 262 - Randomized Algorithms and Applications",
+    "description": "Design and analysis of algorithms which incorporate randomness in their design. Applications will be given in several of the following areas: data structures, pattern matching, cryptography, parallel computing, distributed computing, and interactive proof systems.",
     "prerequisites": [
-      "CS155",
-      "CS154"
+      "CS154",
+      "CS155"
     ],
     "corequisites": [],
     "units": 3
@@ -790,6 +871,7 @@
   {
     "course_id": "CS265",
     "title": "CS 265 - Cryptography and Computer Security",
+    "description": "Security mechanisms for protecting information in computer systems and networks. Includes cryptography and its applications to security services in distributed systems, mathematics of cryptography, access control, protection models, security policies, design of secure systems, firewalls, and intrusion detection.",
     "prerequisites": [
       "CS166",
       "CS149"
@@ -800,6 +882,7 @@
   {
     "course_id": "CS266",
     "title": "CS 266 - Topics in Information Security",
+    "description": "Advanced topics in the area of information security. Content differs with each offering. Possible topics include, but are not restricted to: Network Security, Software Reverse Engineering and Cryptanalysis.",
     "prerequisites": [
       "CS166"
     ],
@@ -809,6 +892,7 @@
   {
     "course_id": "CS267",
     "title": "CS 267 - Topics in Database Systems",
+    "description": "Advanced topics in the area of database and information systems. Content differs in each offering. Possible topics include though not restricted to: Data Mining, Distributed Databases and Transaction Processing.",
     "prerequisites": [
       "CS157B"
     ],
@@ -818,6 +902,7 @@
   {
     "course_id": "CS268",
     "title": "CS 268 - Topics in Wireless Mobile Networking",
+    "description": "Advanced topics in the area of wireless mobile networking. Content may differ in each offering. Possible topics include though not restricted to: wireless local and metropolitan area networks, mobile Internet, sensor networks, mobile computing, wireless network security. Repeatable when topic changes.",
     "prerequisites": [
       "CS158A"
     ],
@@ -827,6 +912,7 @@
   {
     "course_id": "CS271",
     "title": "CS 271 - Topics in Machine Learning",
+    "description": "Variable topics in machine learning. Content may include hidden Markov models, principal component analysis, support vector machines, clustering, boosting, random forests, neural networks, and deep learning. Relevant applications will be covered.",
     "prerequisites": [
       "CS157A"
     ],
@@ -836,6 +922,7 @@
   {
     "course_id": "CS272",
     "title": "CS 272 - Reinforcement Learning and Sequential Decision Making",
+    "description": "Introduction to reinforcement learning, deep reinforcement learning, other online learning algorithms, and their applications.",
     "prerequisites": [
       "CS157A"
     ],
@@ -845,6 +932,7 @@
   {
     "course_id": "CS273",
     "title": "CS 273 - Topics in Natural Language Processing",
+    "description": "Variable topics in Natural Language Processing. Content may include regression/classification model evaluation, text processing, spell correction, language models, sentiment classification, keyword search, and other NLP-based systems.",
     "prerequisites": [
       "CS156",
       "CS171"
@@ -855,6 +943,7 @@
   {
     "course_id": "CS274",
     "title": "CS 274 - Topics in Web Intelligence",
+    "description": "Topics in web intelligence including finding similar items, mining data streams, link analysis, frequent itemsets, advertising on the web, recommender systems, and mining social-network graphs. Relevant applications will be covered. Significant programming project is required.",
     "prerequisites": [
       "CS157A"
     ],
@@ -864,6 +953,7 @@
   {
     "course_id": "CS276",
     "title": "CS 276 - Machine Learning on Graphs",
+    "description": "Graphs are a powerful way to model networks. Networks contain a plethora of valuable information about the underlying data of various scientific fields. Introduction to various network analysis and machine learning techniques to extract, analyze and visualize networks.",
     "prerequisites": [
       "CS146"
     ],
@@ -873,6 +963,7 @@
   {
     "course_id": "CS280",
     "title": "CS 280 - Graduate Individual Studies",
+    "description": "Individual study in specific field.",
     "prerequisites": [],
     "corequisites": [],
     "units": 3
@@ -880,6 +971,7 @@
   {
     "course_id": "CS286",
     "title": "CS 286 - Advanced Topics in Computer Science",
+    "description": "Selected topics in computer science. Topics vary each semester and may be repeated for a maximum of 6 units. Course may be repeated for credit for up to 6 units.",
     "prerequisites": [],
     "corequisites": [],
     "units": 3
@@ -887,6 +979,7 @@
   {
     "course_id": "CS297",
     "title": "CS 297 - Preparation for Writing Project or Thesis",
+    "description": "Supervised individual research and project work to prepare for a master\u2019s writing project or thesis.",
     "prerequisites": [],
     "corequisites": [],
     "units": 3
@@ -894,9 +987,10 @@
   {
     "course_id": "CS298",
     "title": "CS 298 - Master\u2019s Writing Project",
+    "description": "",
     "prerequisites": [
-      "CS297",
-      "CS240"
+      "CS240",
+      "CS297"
     ],
     "corequisites": [],
     "units": 3
@@ -904,6 +998,7 @@
   {
     "course_id": "CS298B",
     "title": "CS 298B - Bioinformatics Master\u2019s Project",
+    "description": "Supervised individual research of an advanced character for the completion of the masters project. Course may be repeated for credit for up to 3 units.",
     "prerequisites": [],
     "corequisites": [],
     "units": 3
@@ -911,6 +1006,7 @@
   {
     "course_id": "CS299",
     "title": "CS 299 - Master\u2019s Thesis",
+    "description": "",
     "prerequisites": [
       "CS297"
     ],
@@ -920,6 +1016,7 @@
   {
     "course_id": "CS1022AS",
     "title": "CS 1022AS - Support Course for CS 22A",
+    "description": null,
     "prerequisites": [],
     "corequisites": [
       "CS22A"
@@ -929,6 +1026,7 @@
   {
     "course_id": "CS1290R",
     "title": "CS 1290R - Culminating Experience Supervision",
+    "description": "Continued work on thesis or project beyond minimum required units, for cases in which final deliverables are still in progress. Course may be repeated for credit for up to 16 units.",
     "prerequisites": [],
     "corequisites": [],
     "units": 1

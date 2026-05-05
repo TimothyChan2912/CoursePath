@@ -114,6 +114,29 @@ body {
     letter-spacing: -0.01em;
 }
 
+.ai-health {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+    font-size: 13px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--surface2);
+    color: var(--muted);
+}
+.ai-health::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: currentColor;
+}
+.ai-health.ready { color: var(--accent2); border-color: rgba(0,212,170,0.4); }
+.ai-health.error { color: var(--danger); border-color: rgba(240,82,82,0.4); }
+.ai-health.checking { color: var(--accent); border-color: rgba(59,138,255,0.4); }
+
 /* ─── Cards ──────────────────────────────────────────────────────── */
 .card {
     background: var(--surface);

@@ -27,11 +27,18 @@ def clean_courses(courses):
     for course in courses:
         if not any(word in course for word in garbage_words):
             cleaned_courses.append(course)
+
     return cleaned_courses
 
 def process_pdf(pdf_path):
     text = extract_text(pdf_path)
-    text = clean_text(text)
+    text = clean_text(text)        
     courses = extract_courses(text)
     cleaned_courses = clean_courses(courses)
+
+    if "AP Calculus AB" in text:
+        cleaned_courses.append("MATH 30")
+    if "AP Computer Science A" in text:
+        cleaned_courses.append("CS 46A")
+
     return cleaned_courses

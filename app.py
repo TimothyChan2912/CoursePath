@@ -1,6 +1,9 @@
 from flask import Flask, render_template, request, jsonify
+import json
 import os
 import sys
+import urllib.error
+import urllib.request
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
@@ -10,7 +13,6 @@ from backend.reviews import add_review, get_reviews, get_all_reviews, get_averag
 from backend.ai_assistant import get_system_prompt
 from backend.catalog import COURSE_CATALOG
 
-# Uses Flask defaults: templates/ and static/ relative to app.py
 app = Flask(__name__)
 
 UPLOAD_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), "uploads")
@@ -18,13 +20,11 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 sessions = {}
 
-# ─── Pages ────────────────────────────────────────────────────────────────────
 
 @app.route("/")
 def index():
     return render_template("index.html")
 
-# ─── Upload & Parse Transcript ────────────────────────────────────────────────
 
 @app.route("/upload", methods=["POST"])
 def upload_file():
@@ -52,7 +52,6 @@ def upload_file():
         "eligible_now": eligible_now[:6]
     })
 
-# ─── Manual Schedule Generation ───────────────────────────────────────────────
 
 @app.route("/schedule", methods=["POST"])
 def get_schedule():
@@ -89,7 +88,6 @@ def get_catalog():
         })
     return jsonify({"catalog": catalog_list})
 
-# ─── Reviews ──────────────────────────────────────────────────────────────────
 
 @app.route("/reviews/<course_id>", methods=["GET"])
 def get_course_reviews(course_id):
@@ -118,8 +116,6 @@ def post_review():
     )
     return jsonify({"success": True, "reviews": reviews})
 
-# ─── AI Chat ──────────────────────────────────────────────────────────────────
-
 @app.route("/chat/system-prompt", methods=["POST"])
 def chat_system_prompt():
     data = request.get_json() or {}
@@ -127,5 +123,100 @@ def chat_system_prompt():
     system_prompt = get_system_prompt(completed if completed else None)
     return jsonify({"system_prompt": system_prompt})
 
+
+@app.route("/chat", methods=["POST"])
+def chat():
+    data = request.get_json() or {}
+    completed = data.get("completed_courses", [])
+    chat_history = data.get("chat_history", [])
+
+    # Keep only expected role/content keys before sending to model backend.
+    messages = []
+    for item in chat_history:
+        if not isinstance(item, dict):
+            continue
+        role = item.get("role")
+        content = item.get("content")
+        if role in {"user", "assistant"} and isinstance(content, str):
+            messages.append({"role": role, "content": content})
+
+    payload = {
+        "model": os.getenv("OLLAMA_MODEL", "llama3.1:8b"),
+        "stream": False,
+        "messages": [
+            {"role": "system", "content": get_system_prompt(completed if completed else None)},
+            *messages,
+        ],
+    }
+    body = json.dumps(payload).encode("utf-8")
+    req = urllib.request.Request(
+        os.getenv("OLLAMA_URL", "http://localhost:11434/api/chat"),
+        data=body,
+        headers={"Content-Type": "application/json"},
+        method="POST",
+    )
+
+    try:
+        with urllib.request.urlopen(req, timeout=60) as resp:
+            response_data = json.loads(resp.read().decode("utf-8"))
+    except urllib.error.URLError:
+        return jsonify({
+            "error": "Local model is unavailable. Start Ollama and pull a model (e.g. `ollama pull llama3.1:8b`)."
+        }), 503
+    except Exception:
+        return jsonify({"error": "Failed to get response from local AI model."}), 500
+
+    reply = (
+        response_data.get("message", {}).get("content")
+        if isinstance(response_data, dict) else None
+    )
+    if not reply:
+        return jsonify({"error": "Local AI model returned an empty response."}), 502
+
+    return jsonify({"reply": reply})
+
+
+@app.route("/health/ai", methods=["GET"])
+def ai_health():
+    model_name = os.getenv("OLLAMA_MODEL", "llama3.1:8b")
+    ollama_base = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
+    tags_url = f"{ollama_base.rstrip('/')}/api/tags"
+    req = urllib.request.Request(tags_url, method="GET")
+
+    try:
+        with urllib.request.urlopen(req, timeout=3) as resp:
+            tags_data = json.loads(resp.read().decode("utf-8"))
+    except urllib.error.URLError:
+        return jsonify({
+            "ready": False,
+            "status": "offline",
+            "message": "Ollama is not running",
+            "model": model_name,
+        }), 503
+    except Exception:
+        return jsonify({
+            "ready": False,
+            "status": "error",
+            "message": "Could not verify Ollama status",
+            "model": model_name,
+        }), 500
+
+    models = tags_data.get("models", []) if isinstance(tags_data, dict) else []
+    available_names = {m.get("name") for m in models if isinstance(m, dict)}
+    if model_name not in available_names:
+        return jsonify({
+            "ready": False,
+            "status": "model_missing",
+            "message": f"Model '{model_name}' not found locally",
+            "model": model_name,
+        }), 503
+
+    return jsonify({
+        "ready": True,
+        "status": "ready",
+        "message": "AI assistant is ready",
+        "model": model_name,
+    })
+
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    app.run(debug=False, port=5000)

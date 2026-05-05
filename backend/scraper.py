@@ -91,6 +91,16 @@ def extract_units(text):
         return int(match.group(1))
     return None
 
+def extract_description(text):
+    match = re.search(
+        r"\d+\s*unit\(s\)\s*(.*?)\s*(?:Prerequisite|Satisfies|Grading|$)",
+        text,
+        re.IGNORECASE | re.DOTALL
+    )
+    if match:
+        return match.group(1).strip()
+    return None
+
 def parse_course_block(soup):    
     title_tag = soup.find("h1", id="course_preview_title")
 
@@ -106,6 +116,7 @@ def parse_course_block(soup):
     return {
         'course_id': course_id,
         'title': title,
+        'description': extract_description(text),
         'prerequisites': prereqs,
         'corequisites': extract_coreqs(text),
         'units': extract_units(text)

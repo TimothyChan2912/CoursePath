@@ -1,11 +1,10 @@
-/* ─── State ──────────────────────────────────────────────────────── */
 let completedCourses = [];
 let chatHistory = [];
 let catalogData = [];
 let activeCategory = "All";
 let selectedRating = 0;
+let aiReady = false;
 
-/* ─── Tab Navigation ─────────────────────────────────────────────── */
 document.querySelectorAll(".tab").forEach(tab => {
     tab.addEventListener("click", () => {
         document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
@@ -15,10 +14,12 @@ document.querySelectorAll(".tab").forEach(tab => {
 
         if (tab.dataset.tab === "catalog" && catalogData.length === 0) loadCatalog();
         if (tab.dataset.tab === "reviews") loadReviewDropdowns();
+        if (tab.dataset.tab === "chat") checkAiHealth();
     });
 });
 
-/* ─── Drag & Drop Upload ──────────────────────────────────────────── */
+checkAiHealth();
+
 const dropZone = document.getElementById("dropZone");
 const fileInput = document.getElementById("fileInput");
 
@@ -88,7 +89,6 @@ function renderEligible(courses) {
     `).join("");
 }
 
-/* ─── Schedule Generator ──────────────────────────────────────────── */
 document.getElementById("generateBtn").addEventListener("click", async () => {
     const raw = document.getElementById("manualCourses").value;
     const completed = raw.split(",").map(s => s.trim()).filter(Boolean);
@@ -142,16 +142,33 @@ function renderSchedule(schedule, containerId, compact) {
     `).join("");
 }
 
-/* ─── Course Catalog ──────────────────────────────────────────────── */
 async function loadCatalog() {
     try {
         const res = await fetch("/catalog");
         const data = await res.json();
-        catalogData = data.catalog;
+        const rawCatalog = data?.catalog ?? [];
+        const asArray = Array.isArray(rawCatalog)
+            ? rawCatalog
+            : Object.entries(rawCatalog).map(([id, info]) => ({ id, ...info }));
+
+        catalogData = asArray.map(course => ({
+            id: course.id || "",
+            name: course.name || "Unknown Course",
+            units: course.units ?? 0,
+            description: course.description || "",
+            prerequisites: Array.isArray(course.prerequisites) ? course.prerequisites : [],
+            category: course.category || "Catalog",
+            avg_rating: course.avg_rating ?? null,
+            review_count: course.review_count ?? 0
+        }));
+
+        activeCategory = "All";
         buildCategoryFilters();
-        renderCatalog(catalogData);
+        applyFilters();
     } catch (err) {
         console.error("Failed to load catalog", err);
+        document.getElementById("catalogGrid").innerHTML =
+            `<div class="empty-state" style="grid-column:1/-1"><div class="empty-icon">⚠️</div><p>Could not load catalog data.</p></div>`;
     }
 }
 
@@ -391,11 +408,17 @@ async function loadReviews(courseId) {
     }
 }
 
-/* ─── AI Chat ─────────────────────────────────────────────────────── */
 async function sendChat() {
     const input = document.getElementById("chatInput");
     const msg = input.value.trim();
     if (!msg) return;
+    if (!aiReady) {
+        await checkAiHealth();
+        if (!aiReady) {
+            addChatMsg("assistant", "Local AI is not ready yet. Start Ollama and ensure the model is installed.");
+            return;
+        }
+    }
 
     input.value = "";
     addChatMsg("user", msg);
@@ -404,33 +427,49 @@ async function sendChat() {
     const typingId = addChatMsg("assistant", "Thinking...", true);
 
     try {
-        // Get system prompt with course context from our server
-        const sysRes = await fetch("/chat/system-prompt", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ completed_courses: completedCourses })
-        });
-        const { system_prompt } = await sysRes.json();
-
-        // Call Anthropic API directly from frontend
-        const response = await fetch("https://api.anthropic.com/v1/messages", {
+        const response = await fetch("/chat", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-                model: "claude-sonnet-4-20250514",
-                max_tokens: 1000,
-                system: system_prompt,
-                messages: chatHistory
+                completed_courses: completedCourses,
+                chat_history: chatHistory
             })
         });
-
         const data = await response.json();
-        const reply = data.content?.find(b => b.type === "text")?.text || "Sorry, I couldn't generate a response.";
+        if (!response.ok) {
+            throw new Error(data.error || "Chat request failed");
+        }
+        const reply = data.reply || "Sorry, I couldn't generate a response.";
 
         chatHistory.push({ role: "assistant", content: reply });
         updateChatMsg(typingId, reply);
     } catch (err) {
-        updateChatMsg(typingId, "Sorry, I'm having trouble connecting right now. Please try again.");
+        updateChatMsg(typingId, err.message || "Sorry, I'm having trouble connecting right now. Please try again.");
+    }
+}
+
+async function checkAiHealth() {
+    const statusEl = document.getElementById("aiHealthStatus");
+    if (!statusEl) return;
+
+    statusEl.className = "ai-health checking";
+    statusEl.textContent = "Checking local AI status...";
+
+    try {
+        const res = await fetch("/health/ai");
+        const data = await res.json();
+        aiReady = !!data.ready;
+        if (aiReady) {
+            statusEl.className = "ai-health ready";
+            statusEl.textContent = `Ready (${data.model})`;
+        } else {
+            statusEl.className = "ai-health error";
+            statusEl.textContent = data.message || "Local AI unavailable";
+        }
+    } catch (err) {
+        aiReady = false;
+        statusEl.className = "ai-health error";
+        statusEl.textContent = "Cannot reach local AI health endpoint";
     }
 }
 
@@ -467,7 +506,6 @@ function escapeHtml(str) {
     return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
-/* ─── Helpers ─────────────────────────────────────────────────────── */
 function showStatus(id, msg, type) {
     const el = document.getElementById(id);
     el.textContent = msg;
@@ -475,7 +513,6 @@ function showStatus(id, msg, type) {
     el.classList.remove("hidden");
 }
 
-// Keyboard shortcut for chat
 document.getElementById("chatInput").addEventListener("keydown", e => {
     if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendChat(); }
 });

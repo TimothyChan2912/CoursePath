@@ -369,6 +369,11 @@ document.getElementById("submitReview").addEventListener("click", async () => {
             selectedRating = 0;
             document.getElementById("reviewRating").value = 0;
             document.querySelectorAll(".star").forEach(s => s.classList.remove("lit"));
+            // Keep the view selector in sync with the course we just submitted.
+            const viewCourseSelect = document.getElementById("viewCourse");
+            if (viewCourseSelect) {
+                viewCourseSelect.value = courseId;
+            }
             loadReviews(courseId);
         }
     } catch (err) {

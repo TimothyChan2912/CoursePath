@@ -1,4 +1,3 @@
-import json
 from backend.catalog import COURSE_CATALOG, REQUIRED_COURSES, ELECTIVE_COURSES
 from backend.reviews import get_all_reviews, get_average_rating
 

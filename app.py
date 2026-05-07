@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from backend.parser import process_pdf
 from backend.scheduler import generate_schedule, get_missing_prerequisites
-from backend.reviews import add_review, get_reviews, get_all_reviews, get_average_rating
+from backend.reviews import add_review, get_reviews, get_average_rating
 from backend.ai_assistant import get_system_prompt
 from backend.catalog import COURSE_CATALOG
 
@@ -17,8 +17,6 @@ app = Flask(__name__)
 
 UPLOAD_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), "uploads")
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-
-sessions = {}
 
 
 @app.route("/")
@@ -68,8 +66,6 @@ def get_schedule():
         "eligible_now": eligible_now[:6]
     })
 
-# ─── Course Catalog ────────────────────────────────────────────────────────────
-
 @app.route("/catalog", methods=["GET"])
 def get_catalog():
     catalog_list = []
@@ -115,14 +111,6 @@ def post_review():
         author=data.get("author", "Anonymous")
     )
     return jsonify({"success": True, "reviews": reviews})
-
-@app.route("/chat/system-prompt", methods=["POST"])
-def chat_system_prompt():
-    data = request.get_json() or {}
-    completed = data.get("completed_courses", [])
-    system_prompt = get_system_prompt(completed if completed else None)
-    return jsonify({"system_prompt": system_prompt})
-
 
 @app.route("/chat", methods=["POST"])
 def chat():

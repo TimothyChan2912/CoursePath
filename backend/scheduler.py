@@ -6,14 +6,9 @@ from backend.catalog import (
     ELECTIVE_COURSES,
     MAJOR_ELECTIVE_COURSES,
     CS_ELECTIVE_UNITS_REQUIRED,
-    get_prerequisites,
 )
 
 def topological_sort(courses_to_take, catalog):
-    """
-    Returns a topologically sorted list of courses respecting prerequisites.
-    Uses Kahn's algorithm (BFS-based topological sort).
-    """
     # Build adjacency and in-degree for the subgraph of needed courses
     needed = set(courses_to_take)
     in_degree = defaultdict(int)
@@ -49,13 +44,7 @@ def topological_sort(courses_to_take, catalog):
     return sorted_courses
 
 
-def generate_schedule(completed_courses, num_semesters=4, courses_per_semester=4, include_electives=True):
-    """
-    Given a list of completed courses, generate a recommended schedule
-    for remaining required + elective courses.
-
-    Returns a list of semesters, each containing a list of course dicts.
-    """
+def generate_schedule(completed_courses, num_semesters=4, courses_per_semester=4):
     # Normalize completed course IDs (strip extra spaces)
     completed = set()
 
@@ -120,7 +109,6 @@ def generate_schedule(completed_courses, num_semesters=4, courses_per_semester=4
         if not remaining:
             break
 
-    # If courses remain after all semesters, add extra semesters
     extra = 1
     while remaining:
         semester_courses = []
@@ -146,35 +134,10 @@ def generate_schedule(completed_courses, num_semesters=4, courses_per_semester=4
         })
         remaining = still_remaining
         extra += 1
-        if extra > 10:  # Safety break
+        if extra > 10:  
             break
 
     return semesters
-
-
-def _select_remaining_electives(completed):
-    completed_elective_units = sum(
-        COURSE_CATALOG.get(course_id, {}).get("units", 0)
-        for course_id in completed
-        if course_id in ELECTIVE_COURSES
-    )
-    units_needed = max(CS_ELECTIVE_UNITS_REQUIRED - completed_elective_units, 0)
-    if units_needed == 0:
-        return []
-
-    selected = []
-    selected_units = 0
-    for course_id in ELECTIVE_COURSES:
-        if course_id in completed:
-            continue
-
-        selected.append(course_id)
-        selected_units += COURSE_CATALOG.get(course_id, {}).get("units", 3)
-        if selected_units >= units_needed:
-            break
-
-    return selected
-
 
 def _pick_remaining_required_either_groups(completed):
     selected = []
@@ -183,7 +146,6 @@ def _pick_remaining_required_either_groups(completed):
             continue
         selected.append(_best_course_from_group(group, completed))
     return selected
-
 
 def _best_course_from_group(group, completed):
     best = None
@@ -196,10 +158,8 @@ def _best_course_from_group(group, completed):
             best_unmet = unmet
     return best
 
-
 def _has_major_elective(course_ids):
     return any(course_id in MAJOR_ELECTIVE_COURSES for course_id in course_ids)
-
 
 def _append_electives_for_semester(
     semester_courses, scheduled, remaining_units, courses_per_semester, requirement_courses
@@ -225,12 +185,10 @@ def _append_electives_for_semester(
 
     return remaining_units
 
-
 def _prereqs_satisfied_for_plan(course_id, scheduled, requirement_courses):
     prereqs = COURSE_CATALOG.get(course_id, {}).get("prerequisites", [])
     relevant_prereqs = [p for p in prereqs if p in requirement_courses]
     return all(prereq in scheduled for prereq in relevant_prereqs)
-
 
 def _course_detail(course_id):
     info = COURSE_CATALOG.get(course_id, {})
@@ -243,11 +201,7 @@ def _course_detail(course_id):
         "category": info.get("category", "Elective")
     }
 
-
 def get_missing_prerequisites(completed_courses):
-    """
-    Find courses the student could take next (all prereqs satisfied).
-    """
     completed = set(c.strip() for c in completed_courses)
     eligible = []
     for course_id, info in COURSE_CATALOG.items():

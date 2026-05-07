@@ -61,7 +61,6 @@ async function processFile(file) {
         renderSchedule(data.schedule, "previewSemesters", true);
         document.getElementById("schedulePreview").classList.remove("hidden");
 
-        // Pre-fill schedule tab
         document.getElementById("manualCourses").value = data.courses.join(", ");
     } catch (err) {
         showStatus("uploadStatus", "Failed to process file. Is it a valid PDF transcript?", "error");
@@ -251,7 +250,6 @@ function renderStars(avg) {
     ).join("");
 }
 
-/* ─── Course Modal ────────────────────────────────────────────────── */
 async function openCourseModal(courseId) {
     if (catalogData.length === 0) {
         const res = await fetch("/catalog");
@@ -313,7 +311,6 @@ function closeModal() {
     document.getElementById("courseModal").classList.add("hidden");
 }
 
-/* ─── Reviews ────────────────────────────────────────────────────── */
 async function loadReviewDropdowns() {
     if (catalogData.length === 0) {
         const res = await fetch("/catalog");
@@ -326,7 +323,6 @@ async function loadReviewDropdowns() {
     loadReviews(catalogData[0]?.id);
 }
 
-// Star picker
 document.getElementById("starPicker").querySelectorAll(".star").forEach(star => {
     star.addEventListener("click", () => {
         selectedRating = parseInt(star.dataset.val);
@@ -495,7 +491,6 @@ function updateChatMsg(id, text) {
 }
 
 function formatChatText(text) {
-    // Simple markdown-ish formatting
     return escapeHtml(text)
         .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
         .replace(/`(.*?)`/g, `<code style="background:var(--surface2);padding:1px 5px;border-radius:4px;font-family:var(--font-mono);font-size:12px">$1</code>`)
